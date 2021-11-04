@@ -1,0 +1,56 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink='tableau'>Apprenant</a>
+      <a mat-list-item routerLink='formateur'>Formateur</a>
+      <a mat-list-item routerLink='register'>Ajouter un Utilisateur</a>
+      <a mat-list-item routerLink='modifier'>Modifier un Utilisateur</a>
+      <a mat-list-item routerLink='supprimer'>Changer le Mot de Passe</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="bar">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Dashboard</span>
+    </mat-toolbar>
+    <div class="row my-5">
+      <div class="col">
+          <table class="table bg-white rounded shadow-sm  table-hover">
+              <thead>
+                  <tr>
+                      <th scope="col" width="40">Id</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Prenom</th>
+                      <th scope="col">Genre</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Contact</th>
+                      <th scope="col">Status</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
