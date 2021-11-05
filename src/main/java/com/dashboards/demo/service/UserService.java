@@ -17,7 +17,7 @@ public interface UserService {
    public users getInfoUsersById(Long id); 
     public users login(String username, String password);
     public String deleteUser(Long id);
-    public String addUsers(users user);
+    public void save(users user);
     public List<users> listUser();
      public void updateUsers(Long id, users user);
      List<users>findByProfil(profil type);

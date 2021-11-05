@@ -9,6 +9,7 @@ import com.dashboards.demo.model.Presence;
 import com.dashboards.demo.model.profil;
 import com.dashboards.demo.model.users;
 import com.dashboards.demo.service.PresenceImp;
+import com.dashboards.demo.service.UserService;
 import com.dashboards.demo.service.UserServiceImp;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +27,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/APIDASH")
+
 public class UserController {
-    
+   @Autowired 
     UserServiceImp userServiceImp;
+   @Autowired 
+    UserService userService;
     
     @Autowired
     PresenceImp presenceImp;
@@ -48,9 +51,9 @@ public class UserController {
    return userServiceImp.findByProfil(type);
     }
    @PostMapping("/addUser")
-   public String addUser(@RequestBody users user)
+   public void addUser(@RequestBody users user)
    {
-   return this.userServiceImp.addUsers(user);
+   userService.save(user);
    
    }
     @DeleteMapping("/deleteUser/{id}")

@@ -34,10 +34,10 @@ public class UserServiceImp implements UserService{
     return "L'apprenant vient d'être supprimer avec succes";
     }
 
-    @Override
-    public String addUsers(users user) {    
-       this.userRepository.save(user);
-        return "Ajout effectuer avec succes:"+user.getNom()+" "+user.getPrenom();
+   
+    public void save(users user) {    
+       userRepository.save(user);
+       
         
     }
 
@@ -69,5 +69,7 @@ public class UserServiceImp implements UserService{
      return userRepository.findByProfil(type);
 
     }
+
+    
     
 }
