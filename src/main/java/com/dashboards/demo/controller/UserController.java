@@ -9,8 +9,10 @@ import com.dashboards.demo.model.Presence;
 import com.dashboards.demo.model.profil;
 import com.dashboards.demo.model.users;
 import com.dashboards.demo.service.PresenceImp;
+import com.dashboards.demo.service.PresenceService;
 import com.dashboards.demo.service.UserService;
 import com.dashboards.demo.service.UserServiceImp;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
-
 public class UserController {
    @Autowired 
     UserServiceImp userServiceImp;
@@ -37,9 +38,10 @@ public class UserController {
     @Autowired
     PresenceImp presenceImp;
     
-    public UserController(UserServiceImp userServiceImp) {
-        this.userServiceImp = userServiceImp;
-    }
+    @Autowired
+    PresenceService presenceService;
+    
+    
     /* Affichage de la liste avec la methode Get dans Postman */
     @GetMapping("/ListUser")
    public List<users> listUser(){
@@ -87,12 +89,10 @@ public class UserController {
    return new ResponseEntity<>(presenceList, HttpStatus.OK);
    
    }
-   @PostMapping("/add_presence")
-   public ResponseEntity<Presence> adduser(@RequestBody Presence presence){
-   Presence press = presenceImp.ajout_list(presence);
-   return new ResponseEntity<>(press, HttpStatus.CREATED);
+
+ @GetMapping("/presence/now")
+ public List<Presence> getTodayPresenceList(){
+         return presenceService.getPresenceList(LocalDate.now());
    }
-   
-   
 }
 

@@ -5,6 +5,8 @@
  */
 package com.dashboards.demo.model;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,17 +26,20 @@ public class Presence {
  @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Long id_presence;
  
- @Temporal(TemporalType.DATE)
- Date date_pre;
+ private LocalDate date = LocalDate.now();
  
- @Temporal(TemporalType.TIME)
- Date heure_depat;
+ private LocalTime arriver = LocalTime.now();
+
+ private LocalTime depart;
  
- @Temporal(TemporalType.TIME)
- Date heure_arriver;
  
     @ManyToOne
     private users use;
+
+    public Presence() {
+    }
+    
+    
 
     public Long getId_presence() {
         return id_presence;
@@ -44,28 +49,28 @@ public class Presence {
         this.id_presence = id_presence;
     }
 
-    public Date getDate_pre() {
-        return date_pre;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setDate_pre(Date date_pre) {
-        this.date_pre = date_pre;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
-    public Date getHeure_depat() {
-        return heure_depat;
+    public LocalTime getArriver() {
+        return arriver;
     }
 
-    public void setHeure_depat(Date heure_depat) {
-        this.heure_depat = heure_depat;
+    public void setArriver(LocalTime arriver) {
+        this.arriver = arriver;
     }
 
-    public Date getHeure_arriver() {
-        return heure_arriver;
+    public LocalTime getDepart() {
+        return depart;
     }
 
-    public void setHeure_arriver(Date heure_arriver) {
-        this.heure_arriver = heure_arriver;
+    public void setDepart(LocalTime depart) {
+        this.depart = depart;
     }
 
     public users getUse() {
@@ -75,6 +80,6 @@ public class Presence {
     public void setUse(users use) {
         this.use = use;
     }
-    
- 
+
+   
 }

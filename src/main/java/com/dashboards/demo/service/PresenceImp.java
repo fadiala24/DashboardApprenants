@@ -7,6 +7,7 @@ package com.dashboards.demo.service;
 
 import com.dashboards.demo.model.Presence;
 import com.dashboards.demo.repositories.PresenceRepository;
+import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,8 +35,13 @@ public class PresenceImp implements PresenceService {
     @Override
     public List<Presence> getAllPresence() {
     return presenceRepository.findAll();
-        
-//To change body of generated methods, choose Tools | Templates.
+   
+    }
+
+    @Override
+    public List<Presence> getPresenceList(LocalDate localDate) {
+      return presenceRepository.getPresenceByDate(localDate);
+
     }
     
 }

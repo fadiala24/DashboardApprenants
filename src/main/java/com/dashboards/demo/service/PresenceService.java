@@ -6,16 +6,19 @@
 package com.dashboards.demo.service;
 
 import com.dashboards.demo.model.Presence;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 
 /**
  *
  * @author fadiala.sidibe
  */
+@Service
 public interface PresenceService {
-    
+    List<Presence> getPresenceList(LocalDate localDate);
     Presence ajout_list(Presence pres);
     
     void supp_list(Presence pres);
