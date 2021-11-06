@@ -19,6 +19,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     ModifierComponent,
     FormateurComponent,
     DashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,

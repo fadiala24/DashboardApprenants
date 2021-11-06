@@ -18,6 +18,9 @@ export class ServiceService {
     return this.http.get(this.API+'/ListUser');
   }
   listApprenant(){
-    return this.http.get(this.API+'/profile=apprenant')
+    return this.http.get(this.API+'/profile=apprenant');
+  }
+  lisFormateur(){
+    return this.http.get(this.API+'/profile=formateur');
   }
 }

@@ -6,6 +6,7 @@ import { ModifierComponent } from './modifier/modifier.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegisterComponent } from './register/register.component';
 import { SupprimerComponent } from './supprimer/supprimer.component';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
 
 
 
@@ -15,6 +16,7 @@ const routes: Routes =[
   {path:'formateur', component: FormateurComponent},
   {path:'register', component: RegisterComponent},
   {path: 'supprimer', component: SupprimerComponent},
+  {path: 'update', component: UpdateuserComponent},
   {path:'', component: NavbarComponent}
 ];
 

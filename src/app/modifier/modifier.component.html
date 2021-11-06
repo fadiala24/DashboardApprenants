@@ -25,12 +25,12 @@
               <tr class="candidates-list" *ngFor="let item of items">
                 <td class="title">
                   <div class="thumb">
-                    <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
+                    <img src="/assets/708.png" alt="">
                   </div>
                   <div>
                     <div class="candidate-list-info">
                       <div class="candidate-list-title">
-                        <h5>{{item.nom}}</h5>
+                        <h3>{{item.nom}}</h3>
                       </div>
                       <div class="candidate-list-option">
                         <ul class="list-unstyled">
@@ -46,9 +46,8 @@
                 </td>
                 <td>
                   <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                    <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
-                    <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+                    <li><a class="text-info" data-toggle="tooltip" title="" data-original-title="Edit" routerLink='/update'><i class="fas fa-pencil-alt"></i></a></li>
+                    <li><a  class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
                   </ul>
                 </td>
               </tr>

@@ -21,7 +21,6 @@ export class RegisterComponent implements OnInit {
       genre:['', Validators.required],
       age:['', Validators.required],
       telephone:['', Validators.required],
-      dateCreation:['', Validators.required],
       email:['', Validators.required],
       profil:['', Validators.required],
     })
@@ -35,7 +34,6 @@ export class RegisterComponent implements OnInit {
       "genre":""+this.options.value.genre,
       "age":""+this.options.value.age,
       "telephone":""+this.options.value.telephone,
-      "dateCreation":""+this.options.value.dateCreation,
       "email":""+this.options.value.email,
       "profil":""+this.options.value.profil,
     }
