@@ -15,6 +15,7 @@ import com.dashboards.demo.service.UserServiceImp;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -94,5 +95,20 @@ public class UserController {
  public List<Presence> getTodayPresenceList(){
          return presenceService.getPresenceList(LocalDate.now());
    }
+ @GetMapping("/presence/interval/{min}&{max}")
+ public List<Presence> Interval(@PathVariable("min") @DateTimeFormat(pattern = "yyyy-MM-dd")LocalDate min,
+         @PathVariable("max") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate max){
+     return presenceImp.getPresenceListInterval(min, max);    
+}
+ 
+ @GetMapping("/date/{jour}")
+public List<Presence> getDateByDay( @PathVariable("jour") @DateTimeFormat(pattern= "yyyy-MM-dd") LocalDate jour){
+    return presenceImp.getPresenceByDay(jour);
+}
+
+@GetMapping("/day/{mois}")
+public List<Presence> getDateByMonth(@PathVariable int mois){
+return presenceImp.getPresenceByMonth(mois);
+}
 }
 

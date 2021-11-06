@@ -18,10 +18,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface PresenceService {
+    List<Presence> getAllPresence();
     List<Presence> getPresenceList(LocalDate localDate);
     Presence ajout_list(Presence pres);
+    List<Presence> getPresenceByDay(LocalDate days);
+     List<Presence> getPresenceListInterval(LocalDate min, LocalDate max);
+     List<Presence> getPresenceByMonth(int mois);
     
-    void supp_list(Presence pres);
-    
-    List<Presence> getAllPresence();
 }

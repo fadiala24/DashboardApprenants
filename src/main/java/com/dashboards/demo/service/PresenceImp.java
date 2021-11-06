@@ -8,7 +8,9 @@ package com.dashboards.demo.service;
 import com.dashboards.demo.model.Presence;
 import com.dashboards.demo.repositories.PresenceRepository;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
+import org.hibernate.engine.jdbc.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,10 +29,7 @@ public class PresenceImp implements PresenceService {
      return presenceRepository.save(pres);
     }
 
-    @Override
-    public void supp_list(Presence pres) {
-        presenceRepository.delete(pres);
-    }
+   
 
     @Override
     public List<Presence> getAllPresence() {
@@ -42,6 +41,27 @@ public class PresenceImp implements PresenceService {
     public List<Presence> getPresenceList(LocalDate localDate) {
       return presenceRepository.getPresenceByDate(localDate);
 
+    }
+
+    @Override
+    public List<Presence> getPresenceListInterval(LocalDate min, LocalDate max) {
+       return presenceRepository.getPresenceListByDateGreaterThanEqualAndDateLessThanEqual(min, max);
+    }
+
+    @Override
+    public List<Presence> getPresenceByDay(LocalDate days) {
+      return presenceRepository.getPresenceByDateIs(days);
+    }
+
+    
+    
+    
+    @Override
+    public List<Presence> getPresenceByMonth(int mois) {
+      LocalDate date = LocalDate.now().of(LocalDate.now().getYear(),mois, 1);
+      LocalDate debut = date.withDayOfMonth(1);
+      LocalDate fin = date.withDayOfMonth(date.lengthOfMonth());
+      return presenceRepository.getPresenceListByDateGreaterThanEqualAndDateLessThanEqual(debut, fin);
     }
     
 }
