@@ -14,4 +14,7 @@ export class ServiceService {
   public registerUtilisateur(utilisateur: any){
     return this.http.post(this.API+'/addUser', utilisateur);
   }
+  listUtilisateur(){
+    return this.http.get(this.API+'/ListUser');
+  }
 }

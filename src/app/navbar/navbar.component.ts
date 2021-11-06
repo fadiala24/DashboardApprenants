@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import { ServiceService } from '../services/service.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,6 +11,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  items:any;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -16,6 +19,12 @@ export class NavbarComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private services1: ServiceService) {}
 
+  ngOnInit(){
+    this.services1.listUtilisateur().subscribe((data:any)=>{
+      this.items=data,
+      console.log(data)
+    })
+  }
 }

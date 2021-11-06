@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
       "telephone":""+this.options.value.telephone,
       "dateCreation":""+this.options.value.dateCreation,
       "email":""+this.options.value.email,
+      "profil":""+this.options.value.profil,
     }
     // console.log(this.postBody)
     this.http.post("http://localhost:8080/addUser", this.postBody).subscribe()
