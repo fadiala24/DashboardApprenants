@@ -22,28 +22,27 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="candidates-list">
+              <tr class="candidates-list" *ngFor="let item of items">
                 <td class="title">
                   <div class="thumb">
                     <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
                   </div>
-                  <div class="candidate-list-details">
+                  <div>
                     <div class="candidate-list-info">
                       <div class="candidate-list-title">
-                        <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
+                        <h5>{{item.nom}}</h5>
                       </div>
                       <div class="candidate-list-option">
                         <ul class="list-unstyled">
-                          <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                          <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle</li>
+                          <li>{{item.prenom}}</li>
                         </ul>
                       </div>
                     </div>
                   </div>
                 </td>
                 <td class="candidate-list-favourite-time text-center">
-                  <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                  <span class="candidate-list-time order-1">Shortlisted</span>
+                  <a class="candidate-list-favourite order-2 text-danger" href="#"></a>
+                  <span class="candidate-list-time order-1">{{item.profil}}</span>
                 </td>
                 <td>
                   <ul class="list-unstyled mb-0 d-flex justify-content-end">

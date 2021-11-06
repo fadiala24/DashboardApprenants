@@ -17,4 +17,7 @@ export class ServiceService {
   listUtilisateur(){
     return this.http.get(this.API+'/ListUser');
   }
+  listApprenant(){
+    return this.http.get(this.API+'/profile=apprenant')
+  }
 }
