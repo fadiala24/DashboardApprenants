@@ -110,5 +110,14 @@ public List<Presence> getDateByDay( @PathVariable("jour") @DateTimeFormat(patter
 public List<Presence> getDateByMonth(@PathVariable int mois){
 return presenceImp.getPresenceByMonth(mois);
 }
+@GetMapping("/presence/week={year}-{months}-{days}")
+public List<Presence> getListByWeek(
+        @PathVariable("year") int year, 
+        @PathVariable("months") int months,
+        @PathVariable("days") int days
+){
+  return presenceImp.getPresenceByWeek(year, months, days);
+
+}
 }
 

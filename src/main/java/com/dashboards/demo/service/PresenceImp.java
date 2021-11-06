@@ -7,8 +7,11 @@ package com.dashboards.demo.service;
 
 import com.dashboards.demo.model.Presence;
 import com.dashboards.demo.repositories.PresenceRepository;
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import static java.time.temporal.TemporalAdjusters.nextOrSame;
+import static java.time.temporal.TemporalAdjusters.previousOrSame;
 import java.util.List;
 import org.hibernate.engine.jdbc.Size;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +65,14 @@ public class PresenceImp implements PresenceService {
       LocalDate debut = date.withDayOfMonth(1);
       LocalDate fin = date.withDayOfMonth(date.lengthOfMonth());
       return presenceRepository.getPresenceListByDateGreaterThanEqualAndDateLessThanEqual(debut, fin);
+    }
+
+    @Override
+    public List<Presence> getPresenceByWeek(int year, int months, int days) {
+     LocalDate weeks = LocalDate.now().of(year, months,days);
+     LocalDate premier = weeks.with(previousOrSame(DayOfWeek.MONDAY));
+     LocalDate fin = weeks.with(nextOrSame(DayOfWeek.FRIDAY));
+     return presenceRepository.getPresenceListByDateGreaterThanEqualAndDateLessThanEqual(premier, fin);
     }
     
 }
