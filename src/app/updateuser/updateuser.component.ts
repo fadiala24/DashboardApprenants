@@ -3,6 +3,7 @@ import { ServiceService } from '../services/service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Identifiers } from '@angular/compiler/src/render3/r3_identifiers';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-updateuser',
   templateUrl: './updateuser.component.html',
@@ -12,7 +13,16 @@ export class UpdateuserComponent implements OnInit {
   options: FormGroup;
   postBody: any
   items:any;
-  constructor(private updateuser: ServiceService, private formB: FormBuilder, private http: HttpClient) {
+  itemss: any;
+  constructor(private updateuser: ServiceService, private formB: FormBuilder, private http: HttpClient, private activedRouted: ActivatedRoute) {
+    this.activedRouted.queryParams.subscribe(
+      result=>{
+        this.info(result.appId)
+        this.items=result
+
+      })
+
+
     this.options=this.formB.group({
       nom:['', Validators.required],
       prenom:['', Validators.required],
@@ -26,6 +36,12 @@ export class UpdateuserComponent implements OnInit {
 
   ngOnInit(){
   }
+  info(id:any){
+    this.updateuser.info(id).subscribe((res:any)=>{
+      this.itemss=res,
+      console.log(res)
+    })
+  }
   ajout(){
     this.postBody={
       "nom":""+this.options.value.nom,
@@ -36,7 +52,7 @@ export class UpdateuserComponent implements OnInit {
       "email":""+this.options.value.email,
       "profil":""+this.options.value.profil,
     }
-    this.http.post("http://localhost:8080/updateUser=15", this.postBody).subscribe()
+    this.http.post("this.API+'/updateUser/'+id, user", this.postBody).subscribe()
     this.options.reset()
   }
 

@@ -23,7 +23,9 @@ export class ServiceService {
   lisFormateur(){
     return this.http.get(this.API+'/profile=formateur');
   }
-
+  update(id:any, user:any){
+    return this.http.put(this.API+'/updateUser/'+id, user);
+  }
   presencejour(){
     return this.http.get(this.API+'/presence');
   }
@@ -32,5 +34,8 @@ export class ServiceService {
   }
   delete(id:any){
     return this.http.delete(this.API+'/deleteUser/'+id, {responseType: 'text'})
+  }
+  info(id:any){
+    return this.http.get(this.API+'/InfoUser/'+id)
   }
 }
