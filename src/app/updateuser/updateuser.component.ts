@@ -13,13 +13,12 @@ export class UpdateuserComponent implements OnInit {
   options: FormGroup;
   postBody: any
   items:any;
-  itemss: any;
+  id: any
   constructor(private updateuser: ServiceService, private formB: FormBuilder, private http: HttpClient, private activedRouted: ActivatedRoute) {
     this.activedRouted.queryParams.subscribe(
       result=>{
         this.info(result.appId)
-        this.items=result
-
+        this.id = result.appId
       })
 
 
@@ -38,7 +37,7 @@ export class UpdateuserComponent implements OnInit {
   }
   info(id:any){
     this.updateuser.info(id).subscribe((res:any)=>{
-      this.itemss=res,
+      this.items=res,
       console.log(res)
     })
   }
@@ -52,7 +51,12 @@ export class UpdateuserComponent implements OnInit {
       "email":""+this.options.value.email,
       "profil":""+this.options.value.profil,
     }
-    this.http.post("this.API+'/updateUser/'+id, user", this.postBody).subscribe()
+    this.updateuser.update(this.id, this.postBody).subscribe(
+      result=> {
+        console.log(result)
+
+      });
+    // this.http.post("this.API+'/updateUser/'+id", this.postBody).subscribe()
     this.options.reset()
   }
 

@@ -23,8 +23,8 @@ export class ServiceService {
   lisFormateur(){
     return this.http.get(this.API+'/profile=formateur');
   }
-  update(id:any, user:any){
-    return this.http.put(this.API+'/updateUser/'+id, user);
+  update(id:any, userBody:any){
+    return this.http.put(this.API+'/updateUser/'+id, userBody);
   }
   presencejour(){
     return this.http.get(this.API+'/presence');
