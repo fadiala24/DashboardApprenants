@@ -60,7 +60,7 @@
         </div>
   </header>
   <div class="row my-5">
-    <h3 class="fs-4 mb-3" class="marge">Liste des Apprenant</h3>
+    <h3 class="fs-4 mb-3" class="marge">Liste des Utilisateurs</h3>
     <div class="col">
         <table class="table bg-white rounded shadow-sm  table-hover">
             <thead>
@@ -71,7 +71,6 @@
                     <th scope="col">Genre</th>
                     <th scope="col">Email</th>
                     <th scope="col">Contact</th>
-                    <th scope="col">Profil</th>
                     <th scope="col">Status</th>
                 </tr>
             </thead>
@@ -84,15 +83,8 @@
                     <td>{{item.email}}</td>
                     <td>{{item.telephone}}</td>
                     <td>{{item.profil}}</td>
-                    <td>
-                      <select name="profil" id="" class="form-control"formControlName="status">
-                        <option value="activer">Present</option>
-                        <option value="desactiver">Absent</option>
-                      </select>
-                    </td>
                 </tr>
             </tbody>
-
         </table>
     </div>
   </div>

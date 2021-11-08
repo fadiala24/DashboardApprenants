@@ -20,6 +20,10 @@ import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
+import { PresencejourComponent } from './presencejour/presencejour.component';
+import { PresencesemaineComponent } from './presencesemaine/presencesemaine.component';
+import { PresencemoisComponent } from './presencemois/presencemois.component';
+import { PresenceperiodeComponent } from './presenceperiode/presenceperiode.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { UpdateuserComponent } from './updateuser/updateuser.component';
     FormateurComponent,
     DashboardComponent,
     NavbarComponent,
-    UpdateuserComponent
+    UpdateuserComponent,
+    PresencejourComponent,
+    PresencesemaineComponent,
+    PresencemoisComponent,
+    PresenceperiodeComponent
   ],
   imports: [
     BrowserModule,
