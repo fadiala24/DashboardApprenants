@@ -8,6 +8,7 @@ package com.dashboards.demo.model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -17,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -41,6 +43,10 @@ public class users {
     private profil profil;
     @Enumerated (EnumType.STRING)
     private UserStatus status;
+  
+    @OneToMany(mappedBy = "id_presence", cascade = CascadeType.REMOVE)
+    private List<Presence> liste =new ArrayList<Presence>();
+    
     public Long getId() {
         return id;
     }
