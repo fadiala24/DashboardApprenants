@@ -22,8 +22,8 @@ public interface PresenceService {
     List<Presence> getPresenceList(LocalDate localDate);
     Presence ajout_list(Presence pres);
     List<Presence> getPresenceByDay(LocalDate days);
-     List<Presence> getPresenceListInterval(LocalDate min, LocalDate max);
-     List<Presence> getPresenceByMonth(int mois);
-     List<Presence> getPresenceByWeek(int year, int months, int days);
+    List<Presence> getPresenceListInterval(LocalDate min, LocalDate max);
+    List<Presence> getPresenceByMonth(int mois);
+    List<Presence> getPresenceByWeek(int year, int months, int days);
     
 }

@@ -18,7 +18,9 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PresenceRepository extends JpaRepository<Presence, Long>{
+    //Liste de prence Globale par DateS
     List<Presence> getPresenceByDate(LocalDate localDate); 
+    
     List<Presence> getPresenceListByDateGreaterThanEqualAndDateLessThanEqual(LocalDate min, LocalDate max);
     List<Presence> getPresenceByDateIs(LocalDate localDate);
    

@@ -71,6 +71,7 @@ public class UserController {
     {
     this.userServiceImp.updateUsers(id, user);
     }
+    // Les Informations des Utilisateurs par Id
    @GetMapping("/InfoUser/{id}")
    
    public users getInfoUserById(@PathVariable Long id){
@@ -78,34 +79,39 @@ public class UserController {
    return this.userServiceImp.getInfoUsersById(id);
   
    }
+   
+   // Gestion du Login et du Mot de Passe
    @CrossOrigin("*")
    @GetMapping("/logine/{login}/{password}")
    public users appp(@PathVariable("login") String login,
            @PathVariable("password") String password){
        return this.userServiceImp.login(login, password);
 }
+   //                                              Liste de Presence Globale
    @GetMapping("/presence")
    public ResponseEntity<List<Presence>> getALlPresence(){
    List<Presence> presenceList = presenceImp.getAllPresence();
    return new ResponseEntity<>(presenceList, HttpStatus.OK);
    
    }
-
+//                                       Presence du Jour
  @GetMapping("/presence/now")
  public List<Presence> getTodayPresenceList(){
          return presenceService.getPresenceList(LocalDate.now());
    }
+ //                                            Presence Par intervalle 
  @GetMapping("/presence/interval/{min}&{max}")
  public List<Presence> Interval(@PathVariable("min") @DateTimeFormat(pattern = "yyyy-MM-dd")LocalDate min,
          @PathVariable("max") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate max){
      return presenceImp.getPresenceListInterval(min, max);    
 }
  
+ //                             Presence par Jour
  @GetMapping("/date/{jour}")
 public List<Presence> getDateByDay( @PathVariable("jour") @DateTimeFormat(pattern= "yyyy-MM-dd") LocalDate jour){
     return presenceImp.getPresenceByDay(jour);
 }
-
+// Presence par mois 
 @GetMapping("/day/{mois}")
 public List<Presence> getDateByMonth(@PathVariable int mois){
 return presenceImp.getPresenceByMonth(mois);

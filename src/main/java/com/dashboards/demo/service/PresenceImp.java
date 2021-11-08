@@ -45,12 +45,12 @@ public class PresenceImp implements PresenceService {
       return presenceRepository.getPresenceByDate(localDate);
 
     }
-
+                   // Fonction retourne la presence par intervalle date
     @Override
     public List<Presence> getPresenceListInterval(LocalDate min, LocalDate max) {
        return presenceRepository.getPresenceListByDateGreaterThanEqualAndDateLessThanEqual(min, max);
     }
-
+                  // Fonction retourne la Liste de Presence par Jour 
     @Override
     public List<Presence> getPresenceByDay(LocalDate days) {
       return presenceRepository.getPresenceByDateIs(days);
