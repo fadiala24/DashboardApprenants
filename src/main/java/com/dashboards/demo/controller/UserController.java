@@ -94,7 +94,7 @@ public class UserController {
    return new ResponseEntity<>(presenceList, HttpStatus.OK);
    
    }
-//                                       Presence du Jour
+//                                       Presence du Jour actuelle
  @GetMapping("/presence/now")
  public List<Presence> getTodayPresenceList(){
          return presenceService.getPresenceList(LocalDate.now());
@@ -106,7 +106,7 @@ public class UserController {
      return presenceImp.getPresenceListInterval(min, max);    
 }
  
- //                             Presence par Jour
+ //                             Presence par Jour entrer
  @GetMapping("/date/{jour}")
 public List<Presence> getDateByDay( @PathVariable("jour") @DateTimeFormat(pattern= "yyyy-MM-dd") LocalDate jour){
     return presenceImp.getPresenceByDay(jour);
