@@ -26,8 +26,8 @@ export class ServiceService {
   update(id:any, userBody:any){
     return this.http.put(this.API+'/updateUser/'+id, userBody);
   }
-  presencejour(){
-    return this.http.get(this.API+'/presence');
+  jour(){
+    return this.http.get(this.API+'/presence/now');
   }
   presence(){
     return this.http.get(this.API+'/add_presence')

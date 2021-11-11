@@ -19,14 +19,14 @@
     <div class="container-fluid px-4">
       <h3 class="marge">Présence</h3>
         <div class="row g-3 my-2">
-            <div class="col-md-3" routerLink='/jour'>
+            <div class="col-md-3">
                 <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                    <div>
+                    <div routerLink='/jour'>
                         <h3 class="fs-2">Jours</h3>
-
                     </div>
                     <i class="fas fa-calendar-day primary-text border rounded-full secondary-bg p-3"></i>
                 </div>
+                <input  type="date" id="start" name="trip-start" value="2021-11-08">
             </div>
 
             <div class="col-md-3" routerLink='/semaine'>
